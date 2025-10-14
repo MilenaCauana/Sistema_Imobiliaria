@@ -91,6 +91,9 @@ public class Venda_CaioIgorMilena {
     }
 
     // ---- MÉTODOS ----
+
+    //Método para criar um código de venda aleatório
+
     public String toStringVenda(){
 
         String status;
