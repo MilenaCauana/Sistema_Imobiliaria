@@ -101,7 +101,7 @@ public class Venda_CaioIgorMilena {
             status = "Em andamento...";
         }
 
-        return "Venda: " + this.codigoVenda +
+        return "\nVenda: " + this.codigoVenda +
                 "\nCliente: " + this.cliente.getNome() + " CPF: " + this.cliente.getCpf() +
                 "\nCorretor: " + this.corretor.getNome() + " CRECI: " + this.corretor.getCreci() +
                 "\nImovel: " + this.imovel.toStringImovel(); +
