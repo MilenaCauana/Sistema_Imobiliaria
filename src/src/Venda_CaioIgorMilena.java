@@ -104,7 +104,7 @@ public class Venda_CaioIgorMilena {
         return "\nVenda: " + this.codigoVenda +
                 "\nCliente: " + this.cliente.getNome() + " CPF: " + this.cliente.getCpf() +
                 "\nCorretor: " + this.corretor.getNome() + " CRECI: " + this.corretor.getCreci() +
-                "\nImovel: " + this.imovel.toStringImovel(); +
+                "\nImovel: " + this.imovel.toString() +
                 "\nData da Venda: " + this.dataVenda +
                 "\nValor Total: " + this.valorTotalVenda +
                 "\nForma de Pagamento: " + this.formaPagamento +
