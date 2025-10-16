@@ -86,7 +86,7 @@ public class Venda_CaioIgorMilena {
         this.formaPagamento = formaPagamento;
     }
 
-    public void getFinalizada(Boolean finalizada){
+    public void setFinalizada(Boolean finalizada){
         this.finalizada = finalizada;
     }
 

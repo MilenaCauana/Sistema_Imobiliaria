@@ -11,14 +11,14 @@ public class Aluguel_CaioIgorMilena {
     private LocalDate dataDevolucao;
     private LocalDate dataPagamentoMensal;
     private float valorTotalAluguel;
-    private Pagamento_CaioIgorMilena formaPagamemnto;
+    private Pagamento_CaioIgorMilena formaPagamento;
     private ArrayList<Seguro_CaioIgorMilena> segurosContratados;
     private boolean finalizado;
     private boolean pago;
 
     //---------Construtores---------
 
-    public Aluguel_CaioIgorMilena(int codigoAluguel, Cliente_CaioIgorMilena cliente, Corretor_CaioIgorMilena corretor, Imovel_CaioIgorMilena imovel, LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal,  float valorTotalAluguel, ArrayList<Seguro_CaioIgorMilena> segurosContratados, boolean finalizado, boolean pago) {
+    Aluguel_CaioIgorMilena(int codigoAluguel, Cliente_CaioIgorMilena cliente, Corretor_CaioIgorMilena corretor, Imovel_CaioIgorMilena imovel, LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal,  float valorTotalAluguel, ArrayList<Seguro_CaioIgorMilena> segurosContratados, boolean finalizado, boolean pago) {
         this.codigoAluguel = codigoAluguel;
         this.cliente = cliente;
         this.corretor = corretor;
@@ -27,12 +27,12 @@ public class Aluguel_CaioIgorMilena {
         this.dataDevolucao = dataDevolucao;
         this.dataPagamentoMensal = dataPagamentoMensal;
         this.valorTotalAluguel = valorTotalAluguel;
-        this.formaPagamemnto = formaPagamemnto;
-        this.segurosContratados =  segurosContratados;
+        this.formaPagamento = formaPagamento;
+        this.segurosContratados =  new ArrayList<>();
         this.finalizado = finalizado;
     }
 
-    public Aluguel_CaioIgorMilena() {
+    Aluguel_CaioIgorMilena() {
     }
 
     //---------Getters e Setters---------
@@ -102,11 +102,11 @@ public class Aluguel_CaioIgorMilena {
     }
 
     public Pagamento_CaioIgorMilena getFormaPagamemnto() {
-        return formaPagamemnto;
+        return formaPagamento;
     }
 
     public void setFormaPagamemnto(Pagamento_CaioIgorMilena formaPagamemnto) {
-        this.formaPagamemnto = formaPagamemnto;
+        this.formaPagamento = formaPagamemnto;
     }
 
     public ArrayList<Seguro_CaioIgorMilena> getSegurosContratados() {
@@ -116,6 +116,8 @@ public class Aluguel_CaioIgorMilena {
     public void setSegurosContratados(ArrayList<Seguro_CaioIgorMilena> segurosContratados) {
         this.segurosContratados = segurosContratados;
     }
+
+    //---------Métodos Específicos----------
 
     public boolean isFinalizado() {
         return finalizado;
@@ -178,8 +180,52 @@ public class Aluguel_CaioIgorMilena {
         return hoje.isAfter(dataVencimento);
     }
 
-    @Override
-    public String toString() {
+
+    public void addSeguro(Seguro_CaioIgorMilena seguro){
+        this.segurosContratados.add(seguro);
+    }
+
+    public Seguro_CaioIgorMilena searchSeguro(int codigoSeguro){
+        if (segurosContratados.isEmpty()){
+            System.out.println("Lista de seguros está vazia");
+            return null;
+        }
+        for(Seguro_CaioIgorMilena seguro : segurosContratados){
+            if(seguro.getCodigoSeguro() == codigoSeguro){
+                return seguro;
+            }
+        }
+        System.out.println("Seguro não encontrado!");
+        return null;
+    }
+
+    public void popSeguro(Seguro_CaioIgorMilena seguro){
+        if(searchSeguro(seguro.getCodigoSeguro()).equals(seguro)){
+            this.segurosContratados.remove(seguro);
+            System.out.println("Seguro removido com sucesso!");
+        }else{
+            System.out.println("Seguro não encontrado!");
+        }
+    }
+
+    public void showSeguro(Seguro_CaioIgorMilena seguro){
+        if(searchSeguro(seguro.getCodigoSeguro()).equals(seguro)){
+            seguro.toString();
+        }else{
+            System.out.println("Seguro não encontrado!");
+        }
+    }
+
+    public void showAllSeguros(){
+        if(this.segurosContratados.isEmpty()){
+            System.out.println("Lista de seguros vazia");
+        }
+        for(Seguro_CaioIgorMilena seguro : segurosContratados){
+            seguro.toString();
+        }
+    }
+
+    public String toStringAluguel() {
         return "\nAluguel:" +
                 "\nCódigo do Aluguel: " + codigoAluguel +
                 "\nCliente: " + (cliente != null ? cliente.getClass().getSimpleName() : "N/A") +

@@ -17,7 +17,7 @@ public class Controlador {
     }
 
     //Cadastro de Corretor
-    public Boolean cadastroCorretor(Imovel_CaioIgorMilena imobiliaria, Corretor_CaioIgorMilena corretor){
+    public Boolean cadastroCorretor(Imobiliaria_CaioIgorMilena imobiliaria, Corretor_CaioIgorMilena corretor){
         String cpf = corretor.getCpf();
 
         if(imobiliaria.searchCorretor(cpf) != null){
@@ -25,7 +25,7 @@ public class Controlador {
         }
 
         //O corretor não existe, então seu cadastro será feito
-        imobiliaria.addCorretor(corretor);
+        imobiliaria.addCorretores(corretor);
         return true;
     }
 
@@ -35,11 +35,11 @@ public class Controlador {
     public Boolean cadastroCasaResidencial(Imobiliaria_CaioIgorMilena imobiliaria, CasaResidencial_CaioIgorMilena casa){
         int codigoCasa = casa.getCodigoImovel();
 
-        if(imobiliaria.searchCasa(codigoCasa) != null){
+        if(imobiliaria.searchImovel(codigoCasa) != null){
             return false; //Falha (casa já cadastrada)
         }
 
-        imobiliaria.addCasa(casa);
+        imobiliaria.addImovel(casa);
         return true;
     }
 
@@ -47,11 +47,11 @@ public class Controlador {
     public Boolean cadastroPredioResidencial(Imobiliaria_CaioIgorMilena imobiliaria, PredioResidencial_CaioIgorMilena predio){
         int codigoPredio = predio.getCodigoImovel();
 
-        if(imobiliaria.searchPredio(codigoPredio) != null){
+        if(imobiliaria.searchImovel(codigoPredio) != null){
             return false; //Falha (predio já cadastrada)
         }
 
-        imobiliaria.addCasa(predio);
+        imobiliaria.addImovel(predio);
         return true;
     }
 
@@ -59,17 +59,47 @@ public class Controlador {
     public Boolean cadastroComercial(Imobiliaria_CaioIgorMilena imobiliaria, Comercial_CaioIgorMilena comercio){
         int codigoComercio = comercio.getCodigoImovel();
 
-        if(imobiliaria.searchComercio(codigoComercio) != null){
+        if(imobiliaria.searchImovel(codigoComercio) != null){
             return false; //Falha (predio já cadastrada)
         }
 
-        imobiliaria.addComercio(comercio);
+        imobiliaria.addImovel(comercio);
         return true;
     }
 
     // ---- EFETUANDO VENDAS E ALUGUEIS ----
-    public Boolean efetuandoVenda(Imovel_CaioIgorMilena imobiliaria, Cliente_CaioIgorMilena cliente, Corretor_CaioIgorMilena corretor, Imovel_CaioIgorMilena imovel){
+    //Nesse caso, o efetuar significa adicionar ao sistema
 
+    public Boolean efetuandoVenda(Imobiliaria_CaioIgorMilena imobiliaria, Cliente_CaioIgorMilena cliente, Corretor_CaioIgorMilena corretor, Imovel_CaioIgorMilena imovel, Venda_CaioIgorMilena venda){
+
+        if(imobiliaria.searchVenda(venda.getCodigoVenda() == null){
+            return false; //Já existe venda com esse código
+        }
+
+        //Conferindo se o corretor está cadastrado
+        if (imobiliaria.searchCliente(corretor.getCpf()) == null){
+            imobiliaria.addCorretores(corretor);
+        }
+
+        //Conferindo se o corretor está cadastrado
+        if (imobiliaria.searchCorretor(corretor.getCpf()) == null){
+            imobiliaria.addCorretores(corretor);
+        }
+
+        //Conferindo se o imóvel está cadastrado
+        if (imobiliaria.searchImovel(imovel.codigoImovel) == null){
+            imobiliaria.addImovel(imovel);
+        }
+
+        //Agora que estão todos cadastrados, a venda será colocada no sistema
+        imobiliaria.addVendas(venda);
+        return true;
+    }
+
+    // ---- ATUALIZANDO STATUS DE VENDAS E ALUGUEIS
+
+    public Boolean atualizaStatusVenda(Venda_CaioIgorMilena venda, Boolean status){
+        venda.setFinalizada(status);
     }
 
 }
