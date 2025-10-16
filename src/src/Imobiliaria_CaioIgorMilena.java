@@ -14,7 +14,7 @@ public class Imobiliaria_CaioIgorMilena {
 
     //---------Construtores---------
 
-    public Imobiliaria_CaioIgorMilena(String nome, String endereco,ArrayList<Aluguel_CaioIgorMilena> alugueisImobiliaria, ArrayList<Venda_CaioIgorMilena>  vendasImobiliaria, ArrayList<Imovel_CaioIgorMilena> imovelsImobiliaria, ArrayList<Usuario_CaioIgorMilena> clientesImobiliaria, ArrayList<Usuario_CaioIgorMilena> corretoresImobiliaria, ArrayList<Seguro_CaioIgorMilena>  segurosImobiliaria, Configuracao_CaioIgorMilena configuracoes){
+    public Imobiliaria_CaioIgorMilena(String nome, String endereco,ArrayList<Aluguel_CaioIgorMilena> alugueisImobiliaria, ArrayList<Venda_CaioIgorMilena>  vendasImobiliaria, ArrayList<Imovel_CaioIgorMilena> imovelsImobiliaria, ArrayList<Usuario_CaioIgorMilena> clientesImobiliaria, ArrayList<Usuario_CaioIgorMilena> corretoresImobiliaria, ArrayList<Seguro_CaioIgorMilena>  segurosImobiliaria){
         this.nome = nome;
         this.endereco = endereco;
         this.alugueisImobiliaria = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Imobiliaria_CaioIgorMilena {
         this.clientesImobiliaria = new ArrayList<>();
         this.corretoresImobiliaria = new ArrayList<>();
         this.segurosImobiliaria = new ArrayList<>();
-        this.configuracoes = configuracoes;
+        this.configuracoes = new Configuracao_CaioIgorMilena();
     }
 
     public Imobiliaria_CaioIgorMilena(){}
