@@ -1,6 +1,7 @@
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Venda_CaioIgorMilena {
+public class Venda_CaioIgorMilena implements Serializable{
     private int codigoVenda;
     private Cliente_CaioIgorMilena cliente;
     private Corretor_CaioIgorMilena corretor;
@@ -74,8 +75,8 @@ public class Venda_CaioIgorMilena {
         this.imovel = imovel;
     }
 
-    public void setDataVenda(LocalDate dataVenda){
-        this.dataVenda = dataVenda;
+    public void setDataVenda(){
+        this.dataVenda = LocalDate.now();
     }
 
     public void setValorTotalVenda(float valorTotalVenda){

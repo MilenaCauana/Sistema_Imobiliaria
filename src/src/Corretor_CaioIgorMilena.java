@@ -1,6 +1,7 @@
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Corretor_CaioIgorMilena extends Usuario_CaioIgorMilena{
+public class Corretor_CaioIgorMilena extends Usuario_CaioIgorMilena implements Serializable{
     protected String creci;
     protected float salario;
     protected String pis;
@@ -59,7 +60,7 @@ public class Corretor_CaioIgorMilena extends Usuario_CaioIgorMilena{
     // ---- MÉTODOS ----
 
     //Retorna uma string com todos os atributos
-    public String toStringVendaUsuario(){
+    public String toString(){
         return super.toString() +
                 "\nCreci: " + this.creci +
                 "\nSalario: " + this.salario +

@@ -1,6 +1,7 @@
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Usuario_CaioIgorMilena {
+public class Usuario_CaioIgorMilena implements Serializable{
 
     protected int codigoUsuario;
     protected String nome;
@@ -18,7 +19,7 @@ public class Usuario_CaioIgorMilena {
         this.nome = "Nome nao fornecido.";
         this.cpf = "CPF nao fornecido.";
         this.rg = "RG nao fornecido.";
-        this.dataNascimento = LocalDate.of(-1, -1, -1);
+        this.dataNascimento = LocalDate.of(1, 1, 1);
         this.endereco = "Endereco nao fornecido";
         this.cep = "CEP nao fornecido";
         this.telefone = "Telefone nao fornecido";
@@ -74,7 +75,7 @@ public class Usuario_CaioIgorMilena {
         return this.email;
     }
 
-    public void setNome(int codigoUsuario){
+    public void setCodigoUsuario(int codigoUsuario){
         this.codigoUsuario = codigoUsuario;
     }
 
@@ -113,7 +114,7 @@ public class Usuario_CaioIgorMilena {
     // ---- MÉTODOS ----
 
     //Retorna uma string com todos os atributos
-    public String toStringUsuario(){
+    public String toString(){
         return "Nome: " + this.nome +
                 "\nCódigo de usuário: " + this.codigoUsuario +
                 "\nCPF: " + this.cpf +

@@ -1,4 +1,6 @@
-public class Seguro_CaioIgorMilena {
+import java.io.Serializable;
+
+public class Seguro_CaioIgorMilena implements Serializable{
     private int codigoSeguro;
     private String nomeSeguradora;
     private String tipo;

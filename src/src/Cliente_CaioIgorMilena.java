@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.io.Serializable;
 
 public class Cliente_CaioIgorMilena extends Usuario_CaioIgorMilena{
     protected LocalDate dataCadastro;
@@ -27,7 +28,7 @@ public class Cliente_CaioIgorMilena extends Usuario_CaioIgorMilena{
     // ---- MÉTODOS ----
 
     //Retorna uma string com todos os atributos
-    public String toStringUsuario(){
+    public String toString(){
         return super.toString() +
                 "\nData de Cadastro: " + this.dataCadastro;
 

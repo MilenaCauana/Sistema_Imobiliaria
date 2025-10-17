@@ -1,6 +1,7 @@
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Imovel_CaioIgorMilena {
+public class Imovel_CaioIgorMilena implements Serializable{
     protected int codigoImovel;
     protected String endereco;
     protected LocalDate dataConstrucao;
@@ -12,12 +13,12 @@ public class Imovel_CaioIgorMilena {
     protected float valorIPTU;
     protected float valorVenda;
     protected float valorAluguel;
-
-
+    protected Boolean disponivelVenda;
+    protected Boolean disponivelLocacao;
 
     //---------Construtores---------
 
-    public Imovel_CaioIgorMilena(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel) {
+    public Imovel_CaioIgorMilena(int codigoImovel, String endereco, LocalDate dataConstrucao, float areaTotal, float areaConstruida, int qtdDormitorios, int qtdBanheiros, int qtdVagasGaragem, float valorIPTU, float valorVenda, float valorAluguel, Boolean disponivelVenda, Boolean disponivelLocacao) {
         this.codigoImovel = codigoImovel;
         this.endereco = endereco;
         this.dataConstrucao = dataConstrucao;
@@ -29,6 +30,8 @@ public class Imovel_CaioIgorMilena {
         this.valorIPTU = valorIPTU;
         this.valorVenda = valorVenda;
         this.valorAluguel = valorAluguel;
+        this.disponivelVenda = disponivelVenda;
+        this.disponivelLocacao = disponivelLocacao;
     }
 
     public Imovel_CaioIgorMilena() {}
@@ -51,8 +54,8 @@ public class Imovel_CaioIgorMilena {
         return endereco;
     }
 
-    public void setDataConstrucao(LocalDate dataConstrucao) {
-        this.dataConstrucao = dataConstrucao;
+    public void setDataConstrucao(int ano, int mes, int dia) {
+        this.dataConstrucao = LocalDate.of(ano, mes, dia);
     }
     public LocalDate getDataConstrucao() {
         return dataConstrucao;
@@ -114,5 +117,17 @@ public class Imovel_CaioIgorMilena {
         return valorAluguel;
     }
 
+    public void setDisponivelVenda(Boolean disponivelVenda){
+        this.disponivelVenda = disponivelVenda;
+    }
+    public Boolean getDisponivelVenda(){
+        return disponivelVenda;
+    }
 
+    public void setDisponivelLocacao(Boolean disponivelLocacao){
+        this.disponivelLocacao = disponivelLocacao;
+    }
+    public Boolean getDisponivelLocacao(){
+        return disponivelLocacao;
+    }
 }

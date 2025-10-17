@@ -1,6 +1,8 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Imobiliaria_CaioIgorMilena {
+public class Imobiliaria_CaioIgorMilena implements Serializable{
     private  String nome;
     private  String endereco;
     private  ArrayList<Aluguel_CaioIgorMilena> alugueisImobiliaria;
@@ -26,7 +28,17 @@ public class Imobiliaria_CaioIgorMilena {
         this.configuracoes = new Configuracao_CaioIgorMilena();
     }
 
-    public Imobiliaria_CaioIgorMilena(){}
+    public Imobiliaria_CaioIgorMilena(){
+        this.nome = "Imobiliaria CaioIgorMilena";
+        this.endereco = "Rua Unesp, 01";
+        this.alugueisImobiliaria = new ArrayList<>();
+        this.vendasImobiliaria = new ArrayList<>();
+        this.imoveisImobiliaria = new ArrayList<>();
+        this.clientesImobiliaria = new ArrayList<>();
+        this.corretoresImobiliaria = new ArrayList<>();
+        this.segurosImobiliaria = new ArrayList<>();
+        this.configuracoes = new Configuracao_CaioIgorMilena();
+    }
 
     //---------Getters e Setters---------
 
@@ -41,6 +53,51 @@ public class Imobiliaria_CaioIgorMilena {
     }
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+    public Configuracao_CaioIgorMilena getConfiguracoes(){
+        return this.configuracoes;
+    }
+    public void setAlugueisImobiliaria(ArrayList<Aluguel_CaioIgorMilena> alugueisImobiliaria){
+        this.alugueisImobiliaria = alugueisImobiliaria;
+    }
+    public void setVendasImobiliaria(ArrayList<Venda_CaioIgorMilena> vendasImobiliaria){
+        this.vendasImobiliaria = vendasImobiliaria;
+    }
+    public void setImoveisImobiliaria(ArrayList<Imovel_CaioIgorMilena> imoveisImobiliaria){
+        this.imoveisImobiliaria = imoveisImobiliaria;
+    }
+    public void setClientesImobiliaria(ArrayList<Usuario_CaioIgorMilena> clientesImobiliaria){
+        this.clientesImobiliaria = clientesImobiliaria;
+    }
+    public void setCorretoresImobiliaria(ArrayList<Usuario_CaioIgorMilena> corretoresImobiliaria){
+        this.corretoresImobiliaria = corretoresImobiliaria;
+    }
+    public void setSegurosImobiliaria(ArrayList<Seguro_CaioIgorMilena> segurosImobiliaria){
+        this.segurosImobiliaria = segurosImobiliaria;
+    }
+
+    public ArrayList<Aluguel_CaioIgorMilena> getAlugueisImobiliaria(){
+        return alugueisImobiliaria;
+    }
+
+    public ArrayList<Venda_CaioIgorMilena> getVendasImobiliaria(){
+        return vendasImobiliaria;
+    }
+
+    public ArrayList<Imovel_CaioIgorMilena> getImoveisImobiliaria(){
+        return imoveisImobiliaria;
+    }
+
+    public ArrayList<Usuario_CaioIgorMilena> getClientesImobiliaria(){
+        return clientesImobiliaria;
+    }
+
+    public ArrayList<Usuario_CaioIgorMilena> getCorretoresImobiliaria(){
+        return corretoresImobiliaria;
+    }
+
+    public ArrayList<Seguro_CaioIgorMilena> getSegurosImobiliaria(){
+        return segurosImobiliaria;
     }
 
     //---------Métodos Específicos---------
@@ -76,10 +133,12 @@ public class Imobiliaria_CaioIgorMilena {
 
     public void showAluguel(Aluguel_CaioIgorMilena aluguel){
         if(searchAluguel(aluguel.getCodigoAluguel()).equals(aluguel)){
-            aluguel.toString();
+            System.out.println(aluguel.toString());
         }else{
             System.out.println("Aluguel não encontrado!");
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     public void showAllAlugueis(){
@@ -87,8 +146,11 @@ public class Imobiliaria_CaioIgorMilena {
             System.out.println("Lista de alugueis vazia");
         }
         for(Aluguel_CaioIgorMilena aluguel : alugueisImobiliaria){
-            aluguel.toString();
+            System.out.println("\n\n");
+            System.out.println(aluguel.toString());
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     //------> Vendas Imobiliaria
@@ -112,20 +174,17 @@ public class Imobiliaria_CaioIgorMilena {
     }
 
     public void popVenda(Venda_CaioIgorMilena venda){
-        if(searchVenda(venda.getCodigoVenda()).equals(venda)){
             this.vendasImobiliaria.remove(venda);
-            System.out.println("Venda removida com sucesso!");
-        }else{
-            System.out.println("Venda não encontrado!");
-        }
     }
 
     public void showVenda(Aluguel_CaioIgorMilena venda){
         if(searchVenda(venda.getCodigoAluguel()).equals(venda)){
-            venda.toString();
+            System.out.println(venda.toString());
         }else{
             System.out.println("Venda não encontrado!");
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     public void showAllVendas(){
@@ -133,8 +192,11 @@ public class Imobiliaria_CaioIgorMilena {
             System.out.println("Lista de vendas vazia");
         }
         for(Venda_CaioIgorMilena venda : vendasImobiliaria){
-            venda.toString();
+            System.out.println("\n\n");
+            System.out.println(venda.toString());
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     //------> Imoveis Imobiliaria
@@ -158,20 +220,17 @@ public class Imobiliaria_CaioIgorMilena {
     }
 
     public void popImovel(Imovel_CaioIgorMilena imovel){
-        if(searchImovel(imovel.getCodigoImovel()).equals(imovel)){
             this.imoveisImobiliaria.remove(imovel);
-            System.out.println("Imovel removido com sucesso!");
-        }else{
-            System.out.println("Imovel não encontrado!");
-        }
     }
 
     public void showImovel(Imovel_CaioIgorMilena imovel){
         if(searchImovel(imovel.getCodigoImovel()).equals(imovel)){
-            imovel.toString();
+            System.out.println(imovel.toString());
         }else{
             System.out.println("Imovel não encontrado!");
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     public void showAllImoveis(){
@@ -179,9 +238,341 @@ public class Imobiliaria_CaioIgorMilena {
             System.out.println("Lista de imoveis está vazia.");
         }
         for(Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
-            imovel.toString();
+            System.out.println("\n\n");
+            System.out.println(imovel.toString());
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
+
+    public void showAllCasaResidencial(){
+        if(this.imoveisImobiliaria.isEmpty()){
+            System.out.println("\nLista de imoveis está vazia.");
+            return;
+        }
+
+        Boolean encontrou = false;
+
+        for (Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
+            if(imovel instanceof CasaResidencial_CaioIgorMilena){
+                System.out.println("\n\n");
+                System.out.println(imovel.toString());
+
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("\nNão há Casa Residencial cadastrada.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllPredio(){
+        if(this.imoveisImobiliaria.isEmpty()){
+            System.out.println("\nLista de imoveis está vazia.");
+            return;
+        }
+
+        Boolean encontrou = false;
+
+        for (Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
+            if(imovel instanceof PredioResidencial_CaioIgorMilena){
+                System.out.println("\n\n");
+                System.out.println(imovel.toString());
+
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("\nNão há Predios cadastrados.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllComercial(){
+        if(this.imoveisImobiliaria.isEmpty()){
+            System.out.println("\nLista de imoveis está vazia.");
+            return;
+        }
+
+        Boolean encontrou = false;
+
+        for (Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
+            if(imovel instanceof Comercial_CaioIgorMilena){
+                System.out.println("\n\n");
+                System.out.println(imovel.toString());
+
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("\nNão há Comerciais cadastrados.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllDispVendas(){
+        if(this.imoveisImobiliaria.isEmpty()){
+            System.out.println("\nLista de imoveis está vazia.");
+            return;
+        }
+
+        Boolean encontrou = false;
+
+        for (Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
+            if(imovel.getDisponivelVenda()){
+                System.out.println("\n\n");
+                System.out.println(imovel.toString());
+
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("\nNão há imóveis disponíveis para venda.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllDispLocacao(){
+        if(this.imoveisImobiliaria.isEmpty()){
+            System.out.println("\nLista de imoveis está vazia.");
+            return;
+        }
+
+        Boolean encontrou = false;
+
+        for (Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
+            if(imovel.getDisponivelLocacao()){
+                System.out.println("\n\n");
+                System.out.println(imovel.toString());
+
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("\nNão há imóveis disponíveis para locacao.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllImoveisVendidos(){
+        if(this.vendasImobiliaria.isEmpty()){
+            System.out.println("\nLista de vendas está vazia.");
+            return;
+        }
+
+        for (Venda_CaioIgorMilena venda : vendasImobiliaria){
+                System.out.println("\n\n");
+                System.out.println(venda.getImovel().toString());
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllVendasMesELucro(int mes){
+        if(this.vendasImobiliaria.isEmpty()){
+            System.out.println("\nLista de vendas está vazia.");
+            return;
+        }
+
+        Boolean encontrado = false;
+        float lucro = 0;
+
+        for (Venda_CaioIgorMilena venda : vendasImobiliaria){
+            if (venda.getDataVenda().getMonth().getValue() == mes){
+                System.out.println("\n\n");
+                System.out.println(venda.getImovel().toString());
+
+                lucro += venda.getValorTotalVenda();
+
+                encontrado = true;
+            }
+        }
+
+        if(encontrado){
+            System.out.println("\nLucro: " + lucro);
+        } else {
+            System.out.println("\nNão houveram vendas nesse mês.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllImoveisAlugados(){
+        if(this.alugueisImobiliaria.isEmpty()){
+            System.out.println("\nLista de alugueis está vazia.");
+            return;
+        }
+
+        for (Aluguel_CaioIgorMilena aluguel : alugueisImobiliaria){
+            System.out.println("\n\n");
+            System.out.println(aluguel.getImovel().toString());
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllImoveisAtraso(){
+        if(this.alugueisImobiliaria.isEmpty()){
+            System.out.println("\nLista de alugueis está vazia.");
+            return;
+        }
+
+        Boolean encontrado = false;
+
+        for (Aluguel_CaioIgorMilena aluguel : this.alugueisImobiliaria){
+            if(!aluguel.getPago()){
+                System.out.println("\n\n");
+                System.out.println(aluguel.getImovel().toString());
+
+                encontrado = true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("\nNão há imóveis com atraso no pagamento de alugueis.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllClientesAtraso(){
+        if(this.alugueisImobiliaria.isEmpty()){
+            System.out.println("\nLista de alugueis está vazia.");
+            return;
+        }
+
+        Boolean encontrado = false;
+
+        for (Aluguel_CaioIgorMilena aluguel : this.alugueisImobiliaria){
+            if(!aluguel.getPago()){
+                System.out.println("\n\n");
+                System.out.println(aluguel.getCliente().toString());
+
+                encontrado = true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("\nNão há imóveis com atraso no pagamento de alugueis.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllAlugueisAntesPrazo(){
+        if(this.alugueisImobiliaria.isEmpty()){
+            System.out.println("\nLista de alugueis está vazia.");
+            return;
+        }
+
+        Boolean encontrado = false;
+
+        for (Aluguel_CaioIgorMilena aluguel : this.alugueisImobiliaria){
+            if(aluguel.getDataDevolucao().isBefore(LocalDate.now())){
+                System.out.println("\n\n");
+                System.out.println(aluguel.toString());
+
+                encontrado = true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("\nNão há alugueis finalizados.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAllAlugueisFinalizados(){
+        if(this.alugueisImobiliaria.isEmpty()){
+            System.out.println("\nLista de alugueis está vazia.");
+            return;
+        }
+
+        Boolean encontrado = false;
+
+        for (Aluguel_CaioIgorMilena aluguel : this.alugueisImobiliaria){
+            if(aluguel.getFinalizado()){
+                System.out.println("\n\n");
+                System.out.println(aluguel.getCliente().toString());
+
+                encontrado = true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("\nNão há alugueis finalizados.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showAlugueisPorCliente (String cpf){
+        if(this.alugueisImobiliaria.isEmpty()){
+            System.out.println("\nLista de alugueis está vazia.");
+            return;
+        }
+
+        //Primeiro, mostrarei qual o cliente
+        showCliente(cpf);
+
+        Boolean encontrado = false;
+
+        for (Aluguel_CaioIgorMilena aluguel : this.alugueisImobiliaria){
+            if(aluguel.getCliente().getCpf() == cpf){
+                System.out.println("\n\n");
+                System.out.println(aluguel.getImovel().toString());
+
+                encontrado = true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("\nNão há imóveis alugados por esse cliente.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+    public void showVendasPorCliente (String cpf){
+        if(this.vendasImobiliaria.isEmpty()){
+            System.out.println("\nLista de vendas está vazia.");
+            return;
+        }
+
+        //Primeiro, mostrarei qual o cliente
+        showCliente(cpf);
+
+        Boolean encontrado = false;
+
+        for (Venda_CaioIgorMilena venda : this.vendasImobiliaria){
+            if(venda.getCliente().getCpf() == cpf){
+                System.out.println("\n\n");
+                System.out.println(venda.getImovel().toString());
+
+                encontrado = true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("\nNão há imóveis comprados por esse cliente.");
+        }
+
+        System.out.println("\n-------------------------------\n");
+    }
+
+
 
     //------> Clientes Imobiliaria
 
@@ -191,7 +582,6 @@ public class Imobiliaria_CaioIgorMilena {
 
     public Usuario_CaioIgorMilena searchCliente(String cpf){
         if (clientesImobiliaria.isEmpty()){
-            System.out.println("Lista de clientes está vazia.");
             return null;
         }
         for(Usuario_CaioIgorMilena cliente : clientesImobiliaria){
@@ -204,20 +594,22 @@ public class Imobiliaria_CaioIgorMilena {
     }
 
     public void popCliente(Cliente_CaioIgorMilena cliente){
-        if(searchCliente(cliente.getCpf()).equals(cliente)){
             this.clientesImobiliaria.remove(cliente);
-            System.out.println("Cliente removido com sucesso!");
-        }else{
-            System.out.println("Cliente não encontrado!");
-        }
     }
 
-    public void showCliente(Cliente_CaioIgorMilena cliente){
-        if(searchCliente(cliente.getCpf()).equals(cliente)){
-            cliente.toStringUsuario();
-        }else{
-            System.out.println("Cliente não encontrado!");
+    public void showCliente(String cpf){
+
+        //Primeiro iremos procurar o cliente
+        Usuario_CaioIgorMilena cliente = searchCliente(cpf);
+
+        if(cliente == null){
+            System.out.println("\nCliente não encontrado.");
+            return;
         }
+
+        cliente.toString();
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     public void showAllClientes(){
@@ -225,8 +617,11 @@ public class Imobiliaria_CaioIgorMilena {
             System.out.println("Lista de clientes está vazia.");
         }
         for(Usuario_CaioIgorMilena cliente : clientesImobiliaria){
-            cliente.toString();
+            System.out.println("\n\n");
+            System.out.println(cliente.toString());
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     //------>  Corretores Imobiliaria
@@ -235,14 +630,16 @@ public class Imobiliaria_CaioIgorMilena {
         this.corretoresImobiliaria.add(corretor);
     }
 
-    public Usuario_CaioIgorMilena searchCorretor(String cpf){
+    public Usuario_CaioIgorMilena searchCorretor(String creci){
         if (corretoresImobiliaria.isEmpty()){
-            System.out.println("Lista de corretores está vazia");
             return null;
         }
         for(Usuario_CaioIgorMilena corretor : corretoresImobiliaria){
-            if(corretor.getCpf() == cpf){
-                return corretor;
+
+            if (corretor instanceof Corretor_CaioIgorMilena){
+                if(((Corretor_CaioIgorMilena) corretor).getCreci() == creci){
+                    return corretor;
+                }
             }
         }
         System.out.println("Corretor não encontrado!");
@@ -259,11 +656,13 @@ public class Imobiliaria_CaioIgorMilena {
     }
 
     public void showCorretor(Corretor_CaioIgorMilena corretor){
-        if(searchCliente(corretor.getCpf()).equals(corretor)){
-            corretor.toStringUsuario();
+        if(searchCorretor(corretor.getCpf()).equals(corretor)){
+            System.out.println(corretor.toString());
         }else{
             System.out.println("Corretor não encontrado!");
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     public void showAllCorretores(){
@@ -271,8 +670,11 @@ public class Imobiliaria_CaioIgorMilena {
             System.out.println("Lista de corretores está vazia");
         }
         for(Usuario_CaioIgorMilena corretor : corretoresImobiliaria){
-            corretor.toString();
+            System.out.println("\n\n");
+            System.out.println(corretor.toString());
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     //------>  Seguros Imobiliaria
@@ -306,19 +708,28 @@ public class Imobiliaria_CaioIgorMilena {
 
     public void showSeguro(Seguro_CaioIgorMilena seguro){
         if(searchSeguro(seguro.getCodigoSeguro()).equals(seguro)){
-            seguro.toString();
+            System.out.println(seguro.toString());
         }else{
             System.out.println("Seguro não encontrado!");
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
     public void showAllSeguros(){
         if(this.segurosImobiliaria.isEmpty()){
             System.out.println("Lista de seguros vazia.");
         }
+
+        int i = 1;
         for(Seguro_CaioIgorMilena seguro : segurosImobiliaria){
-            seguro.toString();
+            System.out.println("\n\n");
+            System.out.println(i + ")");
+            System.out.println(seguro.toString());
+            i++;
         }
+
+        System.out.println("\n-----------------------------------\n");
     }
 
 }

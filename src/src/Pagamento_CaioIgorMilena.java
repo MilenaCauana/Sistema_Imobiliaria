@@ -10,7 +10,7 @@ public class Pagamento_CaioIgorMilena {
 
     //---------Getters e Setters---------
 
-    public void setTipoPagamento(float tipoPagamento){
+    public void setTipoPagamento(String tipoPagamento){
         this.tipoPagamento = this.tipoPagamento;
     }
     public String getTipoPagamento(){

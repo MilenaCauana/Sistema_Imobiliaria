@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Aluguel_CaioIgorMilena {
     private int codigoAluguel;
@@ -9,7 +8,7 @@ public class Aluguel_CaioIgorMilena {
     private Imovel_CaioIgorMilena imovel;
     private LocalDate dataAluguel;
     private LocalDate dataDevolucao;
-    private LocalDate dataPagamentoMensal;
+    private int diaPagamentoMensal;
     private float valorTotalAluguel;
     private Pagamento_CaioIgorMilena formaPagamento;
     private ArrayList<Seguro_CaioIgorMilena> segurosContratados;
@@ -18,14 +17,14 @@ public class Aluguel_CaioIgorMilena {
 
     //---------Construtores---------
 
-    Aluguel_CaioIgorMilena(int codigoAluguel, Cliente_CaioIgorMilena cliente, Corretor_CaioIgorMilena corretor, Imovel_CaioIgorMilena imovel, LocalDate dataAluguel, LocalDate dataDevolucao, LocalDate dataPagamentoMensal,  float valorTotalAluguel, ArrayList<Seguro_CaioIgorMilena> segurosContratados, boolean finalizado, boolean pago) {
+    Aluguel_CaioIgorMilena(int codigoAluguel, Cliente_CaioIgorMilena cliente, Corretor_CaioIgorMilena corretor, Imovel_CaioIgorMilena imovel, LocalDate dataAluguel, LocalDate dataDevolucao, int dataPagamentoMensal, float valorTotalAluguel, ArrayList<Seguro_CaioIgorMilena> segurosContratados, boolean finalizado, boolean pago) {
         this.codigoAluguel = codigoAluguel;
         this.cliente = cliente;
         this.corretor = corretor;
         this.imovel = imovel;
         this.dataAluguel = dataAluguel;
         this.dataDevolucao = dataDevolucao;
-        this.dataPagamentoMensal = dataPagamentoMensal;
+        this.diaPagamentoMensal = dataPagamentoMensal;
         this.valorTotalAluguel = valorTotalAluguel;
         this.formaPagamento = formaPagamento;
         this.segurosContratados =  new ArrayList<>();
@@ -73,8 +72,8 @@ public class Aluguel_CaioIgorMilena {
         return dataAluguel;
     }
 
-    public void setDataAluguel(LocalDate dataAluguel) {
-        this.dataAluguel = dataAluguel;
+    public void setDataAluguel() {
+        this.dataAluguel = LocalDate.now();
     }
 
     public LocalDate getDataDevolucao() {
@@ -85,12 +84,12 @@ public class Aluguel_CaioIgorMilena {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public LocalDate getDataPagamentoMensal() {
-        return dataPagamentoMensal;
+    public int getDataPagamentoMensal() {
+        return diaPagamentoMensal;
     }
 
-    public void setDataPagamentoMensal(LocalDate dataPagamentoMensal) {
-        this.dataPagamentoMensal = dataPagamentoMensal;
+    public void setDiaPagamentoMensal(int diaPagamentoMensal) {
+        this.diaPagamentoMensal = diaPagamentoMensal;
     }
 
     public float getValorTotalAluguel() {
@@ -115,6 +114,14 @@ public class Aluguel_CaioIgorMilena {
 
     public void setSegurosContratados(ArrayList<Seguro_CaioIgorMilena> segurosContratados) {
         this.segurosContratados = segurosContratados;
+    }
+
+    public Boolean getPago(){
+        return this.pago;
+    }
+
+    public Boolean getFinalizado(){
+        return this.finalizado;
     }
 
     //---------Métodos Específicos----------
@@ -162,12 +169,8 @@ public class Aluguel_CaioIgorMilena {
             return false;
         }
 
-        if (this.dataPagamentoMensal == null) {
-            return false;
-        }
-
         LocalDate hoje = LocalDate.now();
-        int diaVencimento = this.dataPagamentoMensal.getDayOfMonth();
+        int diaVencimento = this.diaPagamentoMensal;
 
         LocalDate dataVencimento;
 
@@ -231,7 +234,7 @@ public class Aluguel_CaioIgorMilena {
                 "\nCliente: " + (cliente != null ? cliente.getClass().getSimpleName() : "N/A") +
                 "\nImovel: " + (imovel != null ? imovel.getClass().getSimpleName() : "N/A") +
                 "\nData do aluguel: " + dataAluguel +
-                "\nDia do vencimento: " + (dataPagamentoMensal != null ? dataPagamentoMensal.getDayOfMonth() : "N/A") +
+                "\nDia do vencimento: " + diaPagamentoMensal +
                 "\nValor tootal do aluguel: " + String.format("%.2f", calcularValorTotal()) +
                 "\nFinalizado? - " + finalizado +
                 "\nPago? - " + pago +
