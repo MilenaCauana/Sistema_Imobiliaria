@@ -154,7 +154,7 @@ public class Controlador_CaioIgorMilena {
     //Método para verificar se o cliente já foi cadastrado de acordo com o cpf
     public Boolean verificaClienteJaCadastrado(Imobiliaria_CaioIgorMilena imobiliaria, String cpf){
         //Vendo se o cliente já existe
-        if(imobiliaria.searchCliente(cpf) == null){
+        if(imobiliaria.searchCliente(cpf) != null){
             return true; //Cliente existe
         }
 

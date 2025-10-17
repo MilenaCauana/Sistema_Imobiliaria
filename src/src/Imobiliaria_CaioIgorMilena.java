@@ -530,7 +530,7 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
         Boolean encontrado = false;
 
         for (Aluguel_CaioIgorMilena aluguel : this.alugueisImobiliaria){
-            if(aluguel.getCliente().getCpf() == cpf){
+            if(aluguel.getCliente().getCpf().equals(cpf)){
                 System.out.println("\n\n");
                 System.out.println(aluguel.getImovel().toString());
 
@@ -585,11 +585,10 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
             return null;
         }
         for(Usuario_CaioIgorMilena cliente : clientesImobiliaria){
-            if(cliente.getCpf() == cpf){
+            if(cliente.getCpf().equals(cpf)){
                 return cliente;
             }
         }
-        System.out.println("Cliente não encontrado!");
         return null;
     }
 
@@ -637,12 +636,12 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
         for(Usuario_CaioIgorMilena corretor : corretoresImobiliaria){
 
             if (corretor instanceof Corretor_CaioIgorMilena){
-                if(((Corretor_CaioIgorMilena) corretor).getCreci() == creci){
+                if(((Corretor_CaioIgorMilena) corretor).getCreci().equals(creci)){
                     return corretor;
                 }
             }
         }
-        System.out.println("Corretor não encontrado!");
+
         return null;
     }
 

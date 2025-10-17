@@ -51,6 +51,7 @@ public class Usuario_CaioIgorMilena implements Serializable{
         return this.cpf;
     }
 
+
     public String getRg(){
         return this.rg;
     }

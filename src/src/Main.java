@@ -98,13 +98,13 @@ public class Main {
 
                         System.out.println("Creci: ");
                         creci = sc.nextLine();
-                        corretor.setCpf(creci);
-                        if (!controlador.verificaCorretorJaCadastrado(imobiliaria, creci)){
+                        if (controlador.verificaCorretorJaCadastrado(imobiliaria, creci)){
                             System.out.println(" ! Corretor já cadastrado !");
                             System.out.println(" TENTE NOVAMENTE");
                             System.out.println("----------------------\n");
                             continue;
                         }
+                        corretor.setCpf(creci);
 
                         System.out.println("Salario: ");
                         corretor.setSalario(sc.nextFloat());
@@ -134,13 +134,14 @@ public class Main {
 
                         System.out.println("CPF: ");
                         cpf = sc.nextLine();
-                        cliente.setCpf(cpf);
+                        System.out.println(controlador.verificaClienteJaCadastrado(imobiliaria, cpf));
                         if (controlador.verificaClienteJaCadastrado(imobiliaria, cpf)){
                             System.out.println(" ! Cliente já cadastrado !");
                             System.out.println(" TENTE NOVAMENTE");
                             System.out.println("----------------------\n");
                             continue;
                         }
+                        cliente.setCpf(cpf);
 
 
                         System.out.println("RG: ");
