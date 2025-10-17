@@ -135,7 +135,7 @@ public class Main {
                         System.out.println("CPF: ");
                         cpf = sc.nextLine();
                         cliente.setCpf(cpf);
-                        if (!controlador.verificaClienteJaCadastrado(imobiliaria, cpf)){
+                        if (controlador.verificaClienteJaCadastrado(imobiliaria, cpf)){
                             System.out.println(" ! Cliente já cadastrado !");
                             System.out.println(" TENTE NOVAMENTE");
                             System.out.println("----------------------\n");
