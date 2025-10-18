@@ -33,6 +33,7 @@ public class Main {
         do{
             controlador.menuPrincipal();
             opcaoMenu = sc.nextInt();
+            sc.nextLine();
 
             //Cadastro de Usuário
             if (opcaoMenu == 1){
@@ -79,7 +80,7 @@ public class Main {
                         System.out.println("Endereço: ");
                         corretor.setEndereco(sc.nextLine());
                         System.out.println("CEP: ");
-                        corretor.setEndereco(sc.nextLine());
+                        corretor.setCep(sc.nextLine());
 
                         System.out.println("Telefone: ");
                         corretor.setTelefone(sc.nextLine());
@@ -89,7 +90,6 @@ public class Main {
 
                         System.out.println("Creci: ");
                         creci = sc.nextLine();
-                        System.out.println(controlador.verificaCorretorJaCadastrado(imobiliaria, creci));
                         if (controlador.verificaCorretorJaCadastrado(imobiliaria, creci)){
                             System.out.println(" ! Corretor já cadastrado !");
                             System.out.println(" TENTE NOVAMENTE");
@@ -128,7 +128,6 @@ public class Main {
 
                         System.out.println("CPF: ");
                         cpf = sc.nextLine();
-                        System.out.println(controlador.verificaClienteJaCadastrado(imobiliaria, cpf));
                         if (controlador.verificaClienteJaCadastrado(imobiliaria, cpf)){
                             System.out.println(" ! Cliente já cadastrado !");
                             System.out.println(" TENTE NOVAMENTE");
@@ -941,7 +940,7 @@ public class Main {
                         System.out.println("Cpf do Cliente: ");
                         cpf = sc.nextLine();
 
-                        ((ControladorMenuRelatorioCliente_CaioIgorMilena) controlador).relatorios(imobiliaria, opcaoRelatorio, cpf);
+                        controlador.relatorios(imobiliaria, opcaoRelatorio, cpf);
                         continue;
                     }
 

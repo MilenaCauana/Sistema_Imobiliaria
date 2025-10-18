@@ -58,6 +58,17 @@ public class Controlador_CaioIgorMilena {
     public void relatorioVendaPorCliente(Imobiliaria_CaioIgorMilena imobiliaria, String cpf){
         imobiliaria.showVendasPorCliente(cpf);
     }
+    public void relatorios(Imobiliaria_CaioIgorMilena imobiliaria, int opcao, String cpf){
+        //Imóveis já alugados por um Cliente em específico
+        if(opcao == 10){
+            imobiliaria.showAlugueisPorCliente(cpf);
+        }
+
+        //Imóveis já comprados por um Cliente em específico
+        if(opcao == 11){
+            imobiliaria.showVendasPorCliente(cpf);
+        }
+    }
 
     //Listar todos os Corretores cadastrados
     public void relatorioCorretores(Imobiliaria_CaioIgorMilena imobiliaria){
