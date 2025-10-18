@@ -21,4 +21,9 @@ public class Comercial_CaioIgorMilena extends Imovel_CaioIgorMilena{
         return this.taxaImpostoFederal;
     }
 
+    // ----- MÉTODOS -----
+    public String toString(){
+        return super.toString() +
+                "Taxa Imposto Federal: " + this.taxaImpostoFederal;
+    }
 }

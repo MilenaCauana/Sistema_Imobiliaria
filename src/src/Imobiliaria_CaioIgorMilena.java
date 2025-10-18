@@ -635,10 +635,8 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
         }
         for(Usuario_CaioIgorMilena corretor : corretoresImobiliaria){
 
-            if (corretor instanceof Corretor_CaioIgorMilena){
-                if(((Corretor_CaioIgorMilena) corretor).getCreci().equals(creci)){
-                    return corretor;
-                }
+            if(((Corretor_CaioIgorMilena) corretor).getCreci().equals(creci)){
+                return corretor;
             }
         }
 

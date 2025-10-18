@@ -6,20 +6,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         //Primeiro, irei instanciar um objeto de cada classe que não tem Array
-        Aluguel_CaioIgorMilena aluguel = new Aluguel_CaioIgorMilena();
-        Cartao_CaioIgorMilena cartao = new Cartao_CaioIgorMilena();
-        CasaResidencial_CaioIgorMilena casaResidencial = new CasaResidencial_CaioIgorMilena();
-        Cliente_CaioIgorMilena cliente = new Cliente_CaioIgorMilena();
-        Comercial_CaioIgorMilena comercial = new Comercial_CaioIgorMilena();
         Configuracao_CaioIgorMilena configuracao = new Configuracao_CaioIgorMilena();
         Controlador_CaioIgorMilena controlador = new Controlador_CaioIgorMilena();
         ControladordeArquivos_CaioIgorMilena controladorArquivos = new ControladordeArquivos_CaioIgorMilena();
-        Corretor_CaioIgorMilena corretor = new Corretor_CaioIgorMilena();
-        Dinheiro_CaioIgorMilena dinheiro = new Dinheiro_CaioIgorMilena();
-        PredioResidencial_CaioIgorMilena predioResidencial = new PredioResidencial_CaioIgorMilena();
-        Seguro_CaioIgorMilena seguro = new Seguro_CaioIgorMilena();
-        Venda_CaioIgorMilena venda = new Venda_CaioIgorMilena();
-        Imovel_CaioIgorMilena imovel = new Imovel_CaioIgorMilena();
+
 
         Imobiliaria_CaioIgorMilena imobiliaria = new Imobiliaria_CaioIgorMilena();
 
@@ -59,6 +49,7 @@ public class Main {
                     if (opcaoCadastro == 1){
                         System.out.println(" CADASTRO DE CORRETOR: ");
                         System.out.println("-- Forneça as informações a seguir: ");
+                        Corretor_CaioIgorMilena corretor = new Corretor_CaioIgorMilena();
 
                         System.out.println("Código de Usuário: ");
                         corretor.setCodigoUsuario(sc.nextInt());
@@ -98,13 +89,14 @@ public class Main {
 
                         System.out.println("Creci: ");
                         creci = sc.nextLine();
+                        System.out.println(controlador.verificaCorretorJaCadastrado(imobiliaria, creci));
                         if (controlador.verificaCorretorJaCadastrado(imobiliaria, creci)){
                             System.out.println(" ! Corretor já cadastrado !");
                             System.out.println(" TENTE NOVAMENTE");
                             System.out.println("----------------------\n");
                             continue;
                         }
-                        corretor.setCpf(creci);
+                        corretor.setCreci(creci);
 
                         System.out.println("Salario: ");
                         corretor.setSalario(sc.nextFloat());
@@ -124,6 +116,8 @@ public class Main {
                     if (opcaoCadastro == 2){
                         System.out.println(" CADASTRO DE CLIENTE: ");
                         System.out.println("-- Forneça as informações a seguir: ");
+
+                        Cliente_CaioIgorMilena cliente = new Cliente_CaioIgorMilena();
 
                         System.out.println("Código de Usuário: ");
                         cliente.setCodigoUsuario(sc.nextInt());
@@ -194,26 +188,6 @@ public class Main {
                     sc.nextLine();
 
                     if (opcaoCadastro == 1){
-                        System.out.println(" REMOVER CLIENTE: ");
-                        System.out.println("CPF: ");
-                        cpf = sc.nextLine();
-
-                        removeu = controlador.removeCliente(imobiliaria,cpf);
-
-                        if(!removeu){
-                            System.out.println("! Cliente não foi encontrado !");
-                            System.out.println("Não foi possível remover.");
-                            System.out.println("TENTE NOVAMENTE");
-                            System.out.println("----------------------\n");
-                            continue;
-                        }
-
-                        System.out.println("REMOVIDO COM SUCESSO!");
-                        System.out.println("----------------------\n");
-
-                    }
-
-                    if (opcaoCadastro == 2){
                         System.out.println(" REMOVER CORRETOR: ");
                         System.out.println("Creci: ");
                         creci = sc.nextLine();
@@ -224,6 +198,26 @@ public class Main {
                             System.out.println("! Corretor não foi encontrado !");
                             System.out.println("Não foi possível remover.");
                             System.out.println(" TENTE NOVAMENTE");
+                            System.out.println("----------------------\n");
+                            continue;
+                        }
+
+                        System.out.println("REMOVIDO COM SUCESSO!");
+                        System.out.println("----------------------\n");
+
+                    }
+
+                    if (opcaoCadastro == 2){
+                        System.out.println(" REMOVER CLIENTE: ");
+                        System.out.println("CPF: ");
+                        cpf = sc.nextLine();
+
+                        removeu = controlador.removeCliente(imobiliaria,cpf);
+
+                        if(!removeu){
+                            System.out.println("! Cliente não foi encontrado !");
+                            System.out.println("Não foi possível remover.");
+                            System.out.println("TENTE NOVAMENTE");
                             System.out.println("----------------------\n");
                             continue;
                         }
@@ -253,6 +247,7 @@ public class Main {
                     if (opcaoCadastro == 1){
                         System.out.println(" CADASTRO DE CASA RESIDENCIAL: ");
                         System.out.println("-- Forneça as informações a seguir: ");
+                        CasaResidencial_CaioIgorMilena casaResidencial = new CasaResidencial_CaioIgorMilena();
 
                         System.out.println("Código do Imóvel: ");
                         casaResidencial.setCodigoImovel(sc.nextInt());
@@ -360,6 +355,8 @@ public class Main {
                     if (opcaoCadastro == 2){
                         System.out.println(" CADASTRO DE PRÉDIO RESIDENCIAL: ");
                         System.out.println("-- Forneça as informações a seguir: ");
+
+                        PredioResidencial_CaioIgorMilena predioResidencial = new PredioResidencial_CaioIgorMilena();
 
                         System.out.println("Código do Imóvel: ");
                         predioResidencial.setCodigoImovel(sc.nextInt());
@@ -476,6 +473,8 @@ public class Main {
                     if (opcaoCadastro == 3){
                         System.out.println(" CADASTRO DE COMERCIAL: ");
                         System.out.println("-- Forneça as informações a seguir: ");
+
+                        Comercial_CaioIgorMilena comercial = new Comercial_CaioIgorMilena();
 
                         System.out.println("Código do Imóvel: ");
                         comercial.setCodigoImovel(sc.nextInt());
@@ -596,7 +595,7 @@ public class Main {
                 System.out.println("Creci: ");
                 creci = sc.nextLine();
 
-                corretor = controlador.buscaCorretor(imobiliaria, creci);
+                Usuario_CaioIgorMilena corretor = controlador.buscaCorretor(imobiliaria, creci);
 
                 if(corretor == null){
                     System.out.println("! Creci não reconhecido !");
@@ -605,9 +604,11 @@ public class Main {
                     continue;
                 }
 
+                Venda_CaioIgorMilena venda = new Venda_CaioIgorMilena();
+
                 System.out.println("Bem-vindo " + corretor.getNome() + "!");
                 System.out.println("Forneça as informações necessárias!");
-                venda.setCorretor(corretor);
+                venda.setCorretor((Corretor_CaioIgorMilena) corretor);
 
                 System.out.println("Código Venda: ");
                 venda.setCodigoVenda(sc.nextInt());
@@ -622,7 +623,7 @@ public class Main {
 
                 System.out.println("CPF do Cliente: ");
                 cpf = sc.nextLine();
-                cliente = (Cliente_CaioIgorMilena) imobiliaria.searchCliente(cpf);
+                Usuario_CaioIgorMilena cliente = (Cliente_CaioIgorMilena) imobiliaria.searchCliente(cpf);
 
                 if(cliente == null){
                     System.out.println("! Cliente não cadastrado !");
@@ -632,12 +633,12 @@ public class Main {
                     continue;
                 }
 
-                venda.setCliente(cliente);
+                venda.setCliente((Cliente_CaioIgorMilena) cliente);
 
                 System.out.println("Código do Imóvel: ");
                 codigoImovel = sc.nextInt();
                 sc.nextLine();
-                imovel = imobiliaria.searchImovel(codigoImovel);
+                Imovel_CaioIgorMilena imovel = imobiliaria.searchImovel(codigoImovel);
 
                 if(imovel == null){
                     System.out.println("! Imóvel não cadastrado !");
@@ -669,11 +670,13 @@ public class Main {
                     sc.nextLine();
 
                     if(opcaoAlguelOuVenda == 1){
+                        Dinheiro_CaioIgorMilena dinheiro = new Dinheiro_CaioIgorMilena();
                         dinheiro.setTipoPagamento("Dinheiro");
                         venda.setFormaPagamento(dinheiro);
                     }
 
                     if(opcaoAlguelOuVenda == 2){
+                        Cartao_CaioIgorMilena cartao = new Cartao_CaioIgorMilena();
                         cartao.setTipoPagamento("Cartão");
 
                         System.out.println("Nome no Cartão: ");
@@ -715,7 +718,7 @@ public class Main {
                 System.out.println("Creci: ");
                 creci = sc.nextLine();
 
-                corretor = controlador.buscaCorretor(imobiliaria, creci);
+                Usuario_CaioIgorMilena corretor = controlador.buscaCorretor(imobiliaria, creci);
 
                 if(corretor == null){
                     System.out.println("! Creci não reconhecido !");
@@ -723,16 +726,17 @@ public class Main {
                     System.out.println("--------------------\n");
                     continue;
                 }
+                Aluguel_CaioIgorMilena aluguel = new Aluguel_CaioIgorMilena();
 
                 System.out.println("Bem-vindo " + corretor.getNome() + "!");
                 System.out.println("Forneça as informações necessárias!");
-                aluguel.setCorretor(corretor);
+                aluguel.setCorretor((Corretor_CaioIgorMilena) corretor);
 
                 System.out.println("Código Aluguel: ");
                 aluguel.setCodigoAluguel(sc.nextInt());
                 sc.nextLine();
 
-                if (!controlador.vendaExiste(imobiliaria, venda.getCodigoVenda())){
+                if (!controlador.aluguelExiste(imobiliaria, aluguel.getCodigoAluguel())){
                     System.out.println("! Código de Aluguel já existe !");
                     System.out.println("TENTE NOVAMENTE");
                     System.out.println("--------------------\n");
@@ -741,7 +745,7 @@ public class Main {
 
                 System.out.println("CPF do Cliente: ");
                 cpf = sc.nextLine();
-                cliente = (Cliente_CaioIgorMilena) imobiliaria.searchCliente(cpf);
+                Cliente_CaioIgorMilena cliente = (Cliente_CaioIgorMilena) imobiliaria.searchCliente(cpf);
 
                 if(cliente == null){
                     System.out.println("! Cliente não cadastrado !");
@@ -751,12 +755,12 @@ public class Main {
                     continue;
                 }
 
-                aluguel.setCliente(cliente);
+                aluguel.setCliente((Cliente_CaioIgorMilena)cliente);
 
                 System.out.println("Código do Imóvel: ");
                 codigoImovel = sc.nextInt();
                 sc.nextLine();
-                imovel = imobiliaria.searchImovel(codigoImovel);
+                Imovel_CaioIgorMilena imovel = imobiliaria.searchImovel(codigoImovel);
 
                 if(imovel == null){
                     System.out.println("! Imóvel não cadastrado !");
@@ -788,11 +792,13 @@ public class Main {
                     sc.nextLine();
 
                     if(opcaoAlguelOuVenda == 1){
+                        Dinheiro_CaioIgorMilena dinheiro = new Dinheiro_CaioIgorMilena();
                         dinheiro.setTipoPagamento("Dinheiro");
                         aluguel.setFormaPagamemnto(dinheiro);
                     }
 
                     if(opcaoAlguelOuVenda == 2){
+                        Cartao_CaioIgorMilena cartao = new Cartao_CaioIgorMilena();
                         cartao.setTipoPagamento("Cartão");
 
                         System.out.println("Nome no Cartão: ");
@@ -893,6 +899,7 @@ public class Main {
                     System.out.println("--------------------\n");
                     continue;
                 }
+                Seguro_CaioIgorMilena seguro = new Seguro_CaioIgorMilena();
 
                 seguro.setCodigoSeguro(codigoImovel);
 

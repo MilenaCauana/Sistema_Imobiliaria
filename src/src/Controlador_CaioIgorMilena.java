@@ -153,8 +153,10 @@ public class Controlador_CaioIgorMilena {
 
     //Método para verificar se o cliente já foi cadastrado de acordo com o cpf
     public Boolean verificaClienteJaCadastrado(Imobiliaria_CaioIgorMilena imobiliaria, String cpf){
+        Usuario_CaioIgorMilena cliente = imobiliaria.searchCliente(cpf);
+
         //Vendo se o cliente já existe
-        if(imobiliaria.searchCliente(cpf) != null){
+        if(cliente != null){
             return true; //Cliente existe
         }
 
@@ -171,7 +173,9 @@ public class Controlador_CaioIgorMilena {
     }
 
     public Boolean verificaCorretorJaCadastrado(Imobiliaria_CaioIgorMilena imobiliaria, String creci){
-        if(imobiliaria.searchCorretor(creci) != null){
+        Usuario_CaioIgorMilena corretor = imobiliaria.searchCorretor(creci);
+
+        if(corretor != null){
             return true; //Corretor existe
         }
 
@@ -279,6 +283,14 @@ public class Controlador_CaioIgorMilena {
         //Agora que estão todos cadastrados, a venda será colocada no sistema
         imobiliaria.addVendas(venda);
         return true; //Vendas no sistema
+    }
+
+    public Boolean aluguelExiste(Imobiliaria_CaioIgorMilena imobiliaria, int codigoAluguel){
+        if(imobiliaria.searchAluguel(codigoAluguel) != null){
+            return false; //Já existe venda com esse código cadastrada
+        }
+
+        return true;
     }
 
     public Boolean efetuarAluguel(Imobiliaria_CaioIgorMilena imobiliaria, Imovel_CaioIgorMilena imovel, Aluguel_CaioIgorMilena aluguel,  Boolean statusVenda){

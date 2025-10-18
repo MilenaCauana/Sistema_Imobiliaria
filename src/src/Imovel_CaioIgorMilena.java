@@ -130,4 +130,21 @@ public class Imovel_CaioIgorMilena implements Serializable{
     public Boolean getDisponivelLocacao(){
         return disponivelLocacao;
     }
+
+    public String toString(){
+        return "Código de Imóvel: " + this.codigoImovel +
+                "\nEndereço: " + this.endereco +
+                "\nData da construção: " + this.dataConstrucao +
+                "\nÁrea Total: " + this.areaTotal +
+                "\nÁrea Construída: " + this.areaConstruida +
+                "\nQuantidade de Dormitórios: " + this.qtdDormitorios +
+                "\nQuantidade de Banheiros: " + this.qtdBanheiros +
+                "\nQuantidade de Vagas de Garagem: " + this.qtdVagasGaragem +
+                "\nValor do IPTU: " + this.valorIPTU +
+                "\nValor da Venda: " + this.valorVenda +
+                "\nValor do Aluguel: " + this.valorAluguel +
+                "\nEsta disponivel para venda: " + this.disponivelVenda +
+                "\nEsta disponivel para aluguel: " + this.valorAluguel;
+
+    }
 }

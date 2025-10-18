@@ -12,7 +12,9 @@ public class PredioResidencial_CaioIgorMilena extends Imovel_CaioIgorMilena{
         this.valorCondominio = valorCondominio;
     }
 
-    public PredioResidencial_CaioIgorMilena(){}
+    public PredioResidencial_CaioIgorMilena(){
+        super();
+    }
 
     //---------Getters e Setters---------
 
@@ -28,6 +30,13 @@ public class PredioResidencial_CaioIgorMilena extends Imovel_CaioIgorMilena{
     }
     public float getValorCondominio(){
         return valorCondominio;
+    }
+
+    // ---- MÉTODOS ----
+    public String toString(){
+        return super.toString() +
+                "\nAndar: " + this.andar +
+                "\nValor Condominio: " + this.valorCondominio;
     }
 
 
