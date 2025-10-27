@@ -64,12 +64,11 @@ public class Seguro_CaioIgorMilena implements Serializable{
 
     @Override
     public String toString() {
-        return "\nSeguro: " +
+        return "Seguro: " +
                 "\nCódigo: " + codigoSeguro +
                 "\nSeguradora: " + nomeSeguradora + '\'' +
                 "\nTipo: " + tipo + '\'' +
                 "\nValor: " + String.format("R$ %.2f", valor) +
-                "\nDescrição: " + descricao + '\'' +
-                "\n";
+                "\nDescrição: " + descricao + '\'' ;
     }
 }

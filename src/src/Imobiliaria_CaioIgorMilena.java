@@ -110,7 +110,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
 
     public Aluguel_CaioIgorMilena searchAluguel(int codigoAluguel){
         if (alugueisImobiliaria.isEmpty()){
-            System.out.println("Lista de alugueis está vazia");
             return null;
         }
         for(Aluguel_CaioIgorMilena aluguel : alugueisImobiliaria){
@@ -118,7 +117,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
                 return aluguel;
             }
         }
-        System.out.println("Aluguel não encontrado!");
         return null;
     }
 
@@ -146,7 +144,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
             System.out.println("Lista de alugueis vazia");
         }
         for(Aluguel_CaioIgorMilena aluguel : alugueisImobiliaria){
-            System.out.println("\n\n");
             System.out.println(aluguel.toString());
         }
 
@@ -207,7 +204,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
 
     public Imovel_CaioIgorMilena searchImovel(int codigoImovel){
         if (imoveisImobiliaria.isEmpty()){
-            System.out.println("Lista de imóveis está vazia");
             return null;
         }
         for(Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
@@ -238,7 +234,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
             System.out.println("Lista de imoveis está vazia.");
         }
         for(Imovel_CaioIgorMilena imovel : imoveisImobiliaria){
-            System.out.println("\n\n");
             System.out.println(imovel.toString());
         }
 
@@ -682,7 +677,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
 
     public Seguro_CaioIgorMilena searchSeguro(int codigoSeguro){
         if (segurosImobiliaria.isEmpty()){
-            System.out.println("Lista de seguros está vazia");
             return null;
         }
         for(Seguro_CaioIgorMilena seguro : segurosImobiliaria){
@@ -690,7 +684,7 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
                 return seguro;
             }
         }
-        System.out.println("Seguro não encontrado!");
+
         return null;
     }
 
@@ -720,7 +714,6 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
 
         int i = 1;
         for(Seguro_CaioIgorMilena seguro : segurosImobiliaria){
-            System.out.println("\n\n");
             System.out.println(i + ")");
             System.out.println(seguro.toString());
             i++;

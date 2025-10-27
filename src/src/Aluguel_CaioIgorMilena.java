@@ -32,6 +32,7 @@ public class Aluguel_CaioIgorMilena {
     }
 
     Aluguel_CaioIgorMilena() {
+        this.segurosContratados =  new ArrayList<>();
     }
 
     //---------Getters e Setters---------
@@ -231,8 +232,8 @@ public class Aluguel_CaioIgorMilena {
     public String toStringAluguel() {
         return "\nAluguel:" +
                 "\nCódigo do Aluguel: " + codigoAluguel +
-                "\nCliente: " + (cliente != null ? cliente.getClass().getSimpleName() : "N/A") +
-                "\nImovel: " + (imovel != null ? imovel.getClass().getSimpleName() : "N/A") +
+                "\nCliente: " + this.cliente +
+                "\nImovel: " + this.imovel +
                 "\nData do aluguel: " + dataAluguel +
                 "\nDia do vencimento: " + diaPagamentoMensal +
                 "\nValor tootal do aluguel: " + String.format("%.2f", calcularValorTotal()) +

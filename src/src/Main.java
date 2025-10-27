@@ -312,7 +312,7 @@ public class Main {
                                 casaResidencial.setValorAluguel(0);
                             }
 
-                        }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                        }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                         do{
                             System.out.println("-- O Imóvel estará disponível para venda?");
@@ -335,7 +335,7 @@ public class Main {
                                 casaResidencial.setValorVenda(0);
                             }
 
-                        }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                        }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                         cadastrado = controlador.cadastroCasaResidencial(imobiliaria, casaResidencial);
 
@@ -421,7 +421,7 @@ public class Main {
                                 predioResidencial.setValorAluguel(0);
                             }
 
-                        }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                        }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                         do{
                             System.out.println("-- O Imóvel estará disponível para venda?");
@@ -444,7 +444,7 @@ public class Main {
                                 predioResidencial.setValorVenda(0);
                             }
 
-                        }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                        }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                         System.out.println("Andar: ");
                         predioResidencial.setAndar(sc.nextInt());
@@ -539,7 +539,7 @@ public class Main {
                                 comercial.setValorAluguel(0);
                             }
 
-                        }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                        }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                         do{
                             System.out.println("-- O Imóvel estará disponível para venda?");
@@ -562,7 +562,7 @@ public class Main {
                                 comercial.setValorVenda(0);
                             }
 
-                        }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                        }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                         System.out.println("Taxa Imposto Federal: ");
                         comercial.setTaxaImpostoFederal(sc.nextFloat());
@@ -632,6 +632,7 @@ public class Main {
                     continue;
                 }
 
+                System.out.println("Cliente: " + cliente.getNome());
                 venda.setCliente((Cliente_CaioIgorMilena) cliente);
 
                 System.out.println("Código do Imóvel: ");
@@ -690,7 +691,7 @@ public class Main {
                         venda.setFormaPagamento(cartao);
                     }
 
-                }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                 venda.setFinalizada(true);
 
@@ -754,6 +755,7 @@ public class Main {
                     continue;
                 }
 
+                System.out.println("Cliente: " + cliente.getNome());
                 aluguel.setCliente((Cliente_CaioIgorMilena)cliente);
 
                 System.out.println("Código do Imóvel: ");
@@ -812,7 +814,7 @@ public class Main {
                         aluguel.setFormaPagamemnto(cartao);
                     }
 
-                }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
 
                 aluguel.setFinalizado(false);
 
@@ -837,7 +839,7 @@ public class Main {
                             dispVenda = false;
                         }
 
-                    }while(!(opcaoAlguelOuVenda != 1 || opcaoAlguelOuVenda != 2 ));
+                    }while(opcaoAlguelOuVenda < 1 && opcaoAlguelOuVenda > 2);
                 }
 
                 do{
@@ -855,7 +857,7 @@ public class Main {
                             i = sc.nextInt();
                             sc.nextLine();
 
-                            aluguel.addSeguro(imobiliaria.getSegurosImobiliaria().get(i+1));
+                            aluguel.addSeguro(imobiliaria.getSegurosImobiliaria().get(i - 1));
 
                             System.out.println("Seguro Adicionado com sucesso!!");
 

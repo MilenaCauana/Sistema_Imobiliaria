@@ -110,6 +110,11 @@ public class Controlador_CaioIgorMilena {
         imobiliaria.showAllSeguros();
     }
 
+    //Listar todos os Alugueis
+    public void relatorioAlugueis(Imobiliaria_CaioIgorMilena imobiliaria){
+        imobiliaria.showAllAlugueis();
+    }
+
     // ================== VERIFICAÇÕES DE DISPONIBILIDADES =================
 
     public Boolean verificarDispVenda(Imovel_CaioIgorMilena imovel){
@@ -365,7 +370,8 @@ public class Controlador_CaioIgorMilena {
         System.out.println("17) Vendas realizadas;");
         System.out.println("18) Vendas realizadas em um mês em específico e o total de lucro gerado no mês;");
         System.out.println("19) Seguros disponíveis;");
-        System.out.println("20) Voltar ao Menu Principal;");
+        System.out.println("20) Alugueis;");
+        System.out.println("21) Voltar ao Menu Principal;");
 
     }
 
@@ -452,6 +458,10 @@ public class Controlador_CaioIgorMilena {
         }
 
         if(opcao == 20){
+            relatorioAlugueis(imobiliaria);
+        }
+
+        if(opcao == 21){
             return;
         }
 
