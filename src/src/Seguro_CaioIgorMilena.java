@@ -66,9 +66,9 @@ public class Seguro_CaioIgorMilena implements Serializable{
     public String toString() {
         return "Seguro: " +
                 "\nCódigo: " + codigoSeguro +
-                "\nSeguradora: " + nomeSeguradora + '\'' +
-                "\nTipo: " + tipo + '\'' +
+                "\nSeguradora: " + nomeSeguradora  +
+                "\nTipo: " + tipo  +
                 "\nValor: " + String.format("R$ %.2f", valor) +
-                "\nDescrição: " + descricao + '\'' ;
+                "\nDescrição: " + descricao;
     }
 }

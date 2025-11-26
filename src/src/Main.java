@@ -957,7 +957,7 @@ public class Main {
 
                     controlador.relatorios(imobiliaria, opcaoRelatorio);
 
-                }while(opcaoRelatorio != 20);
+                }while(opcaoRelatorio != 21);
             }
 
         }while(opcaoMenu != -1);

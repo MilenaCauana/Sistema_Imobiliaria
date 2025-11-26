@@ -132,7 +132,8 @@ public class Imovel_CaioIgorMilena implements Serializable{
     }
 
     public String toString(){
-        return "Código de Imóvel: " + this.codigoImovel +
+        return  "\n-------------------------------------\n"+
+                "Código de Imóvel: " + this.codigoImovel +
                 "\nEndereço: " + this.endereco +
                 "\nData da construção: " + this.dataConstrucao +
                 "\nÁrea Total: " + this.areaTotal +
