@@ -188,7 +188,7 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
         if(this.vendasImobiliaria.isEmpty()){
             System.out.println("Lista de vendas vazia");
         }
-        for(Venda_CaioIgorMilena venda : vendasImobiliaria){
+        for(Venda_CaioIgorMilena venda : this.vendasImobiliaria){
             System.out.println("\n\n");
             System.out.println(venda.toString());
         }
@@ -552,7 +552,7 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
         Boolean encontrado = false;
 
         for (Venda_CaioIgorMilena venda : this.vendasImobiliaria){
-            if(venda.getCliente().getCpf() == cpf){
+            if(venda.getCliente().getCpf().equals(cpf)){
                 System.out.println("\n\n");
                 System.out.println(venda.getImovel().toString());
 
@@ -714,7 +714,7 @@ public class Imobiliaria_CaioIgorMilena implements Serializable{
 
         int i = 1;
         for(Seguro_CaioIgorMilena seguro : segurosImobiliaria){
-            System.out.println(i + ")");
+            System.out.println("\n"+ i + ")");
             System.out.println(seguro.toString());
             i++;
         }

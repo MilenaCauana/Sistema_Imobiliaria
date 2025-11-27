@@ -1,4 +1,6 @@
-public class Pagamento_CaioIgorMilena {
+import java.io.Serializable;
+
+public class Pagamento_CaioIgorMilena implements Serializable {
     private String tipoPagamento;
 
     //---------Construtores---------
@@ -17,5 +19,7 @@ public class Pagamento_CaioIgorMilena {
         return this.tipoPagamento;
     }
 
-
+    public String toString(){
+        return tipoPagamento;
+    }
 }

@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Aluguel_CaioIgorMilena {
+public class Aluguel_CaioIgorMilena implements Serializable{
     private int codigoAluguel;
     private Cliente_CaioIgorMilena cliente;
     private Corretor_CaioIgorMilena corretor;
@@ -229,7 +230,7 @@ public class Aluguel_CaioIgorMilena {
         }
     }
 
-    public String toStringAluguel() {
+    public String toString() {
         return "\nAluguel:" +
                 "\nCódigo do Aluguel: " + codigoAluguel +
                 "\nCliente: " + this.cliente +

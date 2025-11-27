@@ -145,7 +145,7 @@ public class Imovel_CaioIgorMilena implements Serializable{
                 "\nValor da Venda: " + this.valorVenda +
                 "\nValor do Aluguel: " + this.valorAluguel +
                 "\nEsta disponivel para venda: " + this.disponivelVenda +
-                "\nEsta disponivel para aluguel: " + this.valorAluguel;
+                "\nEsta disponivel para aluguel: " + this.disponivelLocacao;
 
     }
 }

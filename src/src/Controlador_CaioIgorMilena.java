@@ -296,6 +296,9 @@ public class Controlador_CaioIgorMilena {
         imovel.disponivelVenda = false;
         imovel.disponivelLocacao = false;
 
+        //Definindo valor total
+        venda.setValorTotalVenda(imovel.getValorVenda());
+
         //Agora que estão todos cadastrados, a venda será colocada no sistema
         imobiliaria.addVendas(venda);
         return true; //Vendas no sistema
@@ -315,7 +318,10 @@ public class Controlador_CaioIgorMilena {
         imovel.disponivelVenda = statusVenda;
         imovel.disponivelLocacao = false;
 
-        //Agora que estão todos cadastrados, a venda será colocada no sistema
+        //Definindo valor total do aluguel
+        aluguel.setValorTotalAluguel(aluguel.calcularValorTotal());
+
+        //Agora que estão todos cadastrados, o aluguel será colocado no sistema
         imobiliaria.addAlugueis(aluguel);
         return true; //Aluguel no sistema
     }
@@ -345,7 +351,7 @@ public class Controlador_CaioIgorMilena {
         System.out.println("5) Alugar Imóvel;");
         System.out.println("6) Cadastro de Seguros;");
         System.out.println("7) Acessar relatórios;");
-        System.out.println("-1) Encerrar sistema;");
+        System.out.println("-1) Encerrar sistema.");
         System.out.println("Opção: ");
    }
 
@@ -371,7 +377,7 @@ public class Controlador_CaioIgorMilena {
         System.out.println("18) Vendas realizadas em um mês em específico e o total de lucro gerado no mês;");
         System.out.println("19) Seguros disponíveis;");
         System.out.println("20) Alugueis;");
-        System.out.println("21) Voltar ao Menu Principal;");
+        System.out.println("21) Voltar ao Menu Principal");
 
     }
 

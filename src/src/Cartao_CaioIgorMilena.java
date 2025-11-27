@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 public class Cartao_CaioIgorMilena extends Pagamento_CaioIgorMilena{
     private String nome;
     private String bandeira;

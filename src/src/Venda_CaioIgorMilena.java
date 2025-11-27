@@ -95,7 +95,7 @@ public class Venda_CaioIgorMilena implements Serializable{
 
     //Método para criar um código de venda aleatório
 
-    public String toStringVenda(){
+    public String toString(){
 
         String status;
 
@@ -106,9 +106,11 @@ public class Venda_CaioIgorMilena implements Serializable{
         }
 
         return "\nVenda: " + this.codigoVenda +
-                "\nCliente: " + this.cliente.getNome() + " CPF: " + this.cliente.getCpf() +
-                "\nCorretor: " + this.corretor.getNome() + " CRECI: " + this.corretor.getCreci() +
+                "\nCliente: " + this.cliente.getNome() + "-> CPF: " + this.cliente.getCpf() +
+                "\nCorretor: " + this.corretor.getNome() + "-> CRECI: " + this.corretor.getCreci() +
+                "\n=============" +
                 "\nImovel: " + this.imovel.toString() +
+                "\n=============" +
                 "\nData da Venda: " + this.dataVenda +
                 "\nValor Total: " + this.valorTotalVenda +
                 "\nForma de Pagamento: " + this.formaPagamento +
